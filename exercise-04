@@ -1,0 +1,20 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+Al momento de hacer un POST, se ejecuta el script. Primero haciendo el post
+Y segundo recuperando el json con un GET
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+browser-->server: [{ content: "", date: "2023-06-07" }] 
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "", date: "2023-06-07" }, ...]
+
+note over browser:
+Ahora el navegador interpretara el JSON y lo mostrara
+end note

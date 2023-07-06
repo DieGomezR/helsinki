@@ -1,0 +1,20 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+note over browser:
+Al momento de cargar el script, se ejecuta un GET 
+para visualizar los registros por medio de la
+funcion redrawNotes
+end note
+
+browser->server: HTTP GET: {redrawNotes} https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "", date: "2023-06-07" }, ...]
+
+
+note over browser:
+Ahora el navegador, mostrara el JSON
+end note
